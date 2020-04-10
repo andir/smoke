@@ -22,6 +22,8 @@ before_install:
   - yes | sh /tmp/nix-install
   - source "${TRAVIS_HOME}/.nix-profile/etc/profile.d/nix.sh"
   - nix-channel --update
+  - nix-env -iA cachix -f https://cachix.org/api/v1/install
+  - cachix use samirtalwar
 
 install:
   - nix-shell --pure --keep LANG --run true
